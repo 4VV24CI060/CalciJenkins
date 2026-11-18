@@ -10,9 +10,13 @@ public class Calculator {
     public boolean isPositive(int number) {
         if (number > 0) {
             return true;
-        } else {
+        } else if(number < 0){
             return false;
         }
+        else {
+        	return false;
+        }
+        
     }
 
 
