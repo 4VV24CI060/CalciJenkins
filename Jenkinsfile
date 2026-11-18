@@ -38,12 +38,23 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            echo '✅ CI Pipeline completed flawlessly! '
-        }
-        failure {
-            echo '❌ The CI Pipeline is broken now. Check console logs for build failures or breaking test regressions now.'
+    stage('SonarQube Analysis') {
+            steps {
+                echo 'Starting SonarQube analysis'
+                withSonarQubeEnv('SonarQube-Local') {
+                    bat 'mvn sonar:sonar'
+                }
+            }
         }
     }
+
+    post {
+        success {
+            echo 'Build and SonarQube analysis completed!'
+        }
+        failure {
+            echo 'Pipeline failed. Check Console Output.'
+        }
+    }
+
 }
