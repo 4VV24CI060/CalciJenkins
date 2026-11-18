@@ -13,6 +13,9 @@ public class Calculator {
         } else if(number < 0){
             return false;
         }
+        else if(number > 0){
+            return true;
+        }
         else {
         	return false;
         }
