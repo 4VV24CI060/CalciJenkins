@@ -8,7 +8,17 @@ public class Calculator {
     }
     
     public boolean isPositive(int number) {
-        return number > 0;
+        if (number > 0) {
+            return true;
+        } else if(number < 0){
+            return false;
+        }
+        else if(number > 0){
+            return true;
+        }
+        else {
+        	return false;
+
     }
 
 
